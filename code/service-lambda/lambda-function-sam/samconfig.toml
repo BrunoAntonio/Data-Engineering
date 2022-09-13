@@ -1,0 +1,11 @@
+version = 0.1
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "lambda-function"
+s3_bucket = "lambda-function-bucket-353006047186"
+s3_prefix = "lambda-function"
+region = "us-east-2"
+capabilities = "CAPABILITY_IAM"
+image_repositories = []
+disable_rollback = true

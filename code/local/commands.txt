@@ -1,0 +1,13 @@
+##### Localstack
+cd C:\Users\bccardoso\Desktop\data\local                                # docker-compose dir
+docker-compose -f docker-compose-localstack.yml up                      # run localstack
+
+
+##### Local Glue
+https://hub.docker.com/r/amazon/aws-glue-libs/tags                      # glue image
+docker pull amazon/aws-glue-libs:glue_libs_1.0.0_image_01               # get glue image
+docker run -itd -p 8888:8888 -p 4040:4040 --name glue_jupyter amazon/aws-glue-libs:glue_libs_1.0.0_image_01 /home/jupyter/jupyter_start.sh
+http://localhost:8888/tree?                                             # jupyter notebook inside conteiner
+
+##### DynamoDB local
+docker-compose -f docker-compose-dynamodb.yml up                        # run dynamodb

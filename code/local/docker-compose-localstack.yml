@@ -1,0 +1,18 @@
+version: '2.1'
+
+services:
+  localstack:
+    container_name: "${LOCALSTACK_DOCKER_NAME-localstack_main}"
+    image: localstack/localstack
+    ports:
+      - "4566-4599:4566-4599"
+      - "${PORT_WEB_UI-8080}:${PORT_WEB_UI-8080}"
+    environment:
+      - SERVICES=serverless
+      - DEBUG=0
+      - DATA_DIR=${DATA_DIR-}
+      - HOST_TMP_FOLDER=${TMPDIR:-/tmp/}localstack
+      - LAMBDA_EXECUTER=docker
+    volumes:
+      - "${TMPDIR:-/tmp}/localstack:/tmp/localstack"
+      - '/var/run/docker.sock:/var/run/docker.sock'
